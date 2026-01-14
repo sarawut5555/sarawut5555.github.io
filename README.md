@@ -1,6 +1,6 @@
 # LAB (งานเดี่ยว)
 
-<h3>web-portfolio</h3> <a href="https://sarawut5555.github.io/web-portfolio" target="_blank" rel="noopener noreferrer">คลิกที่นี่</a>
+<!-- <h3>web-portfolio</h3> <a href="https://sarawut5555.github.io/web-portfolio" target="_blank" rel="noopener noreferrer">คลิกที่นี่</a>
 
-<h3>week4</h3> <a href="https://sarawut5555.github.io/week4" target="_blank" rel="noopener noreferrer">คลิกที่นี่</a>
+<h3>week4</h3> <a href="https://sarawut5555.github.io/week4" target="_blank" rel="noopener noreferrer">คลิกที่นี่</a> -->
 
