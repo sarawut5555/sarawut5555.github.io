@@ -1,0 +1,253 @@
+/*****************************************************************
+ * PART 5 : EXPRESS ROUTES (PSEUDO CODE)
+ * System : Meeting Room Booking System
+ *****************************************************************/
+
+
+// ================================================================
+// ===== ROUTER LAYER =====
+// ================================================================
+
+// routes/rooms.route.js
+const express = require('express');
+const router = express.Router();
+const RoomController = require('../controllers/room.controller');
+const auth = require('../middleware/auth');
+
+// GET /api/rooms - ดึงรายการห้องทั้งหมด
+router.get('/', auth, RoomController.getAllRooms);
+
+module.exports = router;
+
+
+// routes/bookings.route.js
+const bookingRouter = require('express').Router();
+const BookingController = require('../controllers/booking.controller');
+
+// POST /api/bookings - สร้างการจองใหม่
+bookingRouter.post('/', auth, BookingController.createBooking);
+
+// DELETE /api/bookings/:id - ยกเลิกการจอง
+bookingRouter.delete('/:id', auth, BookingController.cancelBooking);
+
+module.exports = bookingRouter;
+
+
+
+// ================================================================
+// ===== CONTROLLER LAYER =====
+// ================================================================
+
+// controllers/room.controller.js
+const RoomService = require('../services/room.service');
+
+class RoomController {
+  static async getAllRooms(req, res) {
+    try {
+      const rooms = await RoomService.getAllRooms();
+      res.status(200).json(rooms);
+    } catch (err) {
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  }
+}
+
+module.exports = RoomController;
+
+
+// controllers/booking.controller.js
+const BookingService = require('../services/booking.service');
+
+class BookingController {
+
+  // POST /api/bookings
+  static async createBooking(req, res) {
+    try {
+      const { room_id, booking_date, start_time, end_time, purpose } = req.body;
+      const user_id = req.user.id; // มาจาก auth middleware
+
+      // Validation เบื้องต้น
+      if (!room_id || !booking_date || !start_time || !end_time) {
+        return res.status(400).json({ error: 'Missing required fields' });
+      }
+
+      const booking = await BookingService.createBooking({
+        user_id,
+        room_id,
+        booking_date,
+        start_time,
+        end_time,
+        purpose
+      });
+
+      res.status(201).json(booking);
+
+    } catch (err) {
+      if (err.message === 'Room not available') {
+        res.status(409).json({ error: err.message });
+      } else {
+        res.status(500).json({ error: 'Internal server error' });
+      }
+    }
+  }
+
+  // DELETE /api/bookings/:id
+  static async cancelBooking(req, res) {
+    try {
+      const booking_id = req.params.id;
+      const user_id = req.user.id;
+
+      await BookingService.cancelBooking(booking_id, user_id);
+
+      res.status(200).json({ message: 'Booking cancelled successfully' });
+
+    } catch (err) {
+      res.status(404).json({ error: err.message });
+    }
+  }
+}
+
+module.exports = BookingController;
+
+
+
+// ================================================================
+// ===== SERVICE LAYER =====
+// ================================================================
+
+// services/room.service.js
+const RoomDB = require('../database/room.db');
+
+class RoomService {
+  static async getAllRooms() {
+    return await RoomDB.findAll();
+  }
+}
+
+module.exports = RoomService;
+
+
+// services/booking.service.js
+const BookingDB = require('../database/booking.db');
+const RoomDB = require('../database/room.db');
+
+class BookingService {
+
+  static async createBooking(data) {
+
+    // Business Rule: เวลาเริ่ม < เวลาสิ้นสุด
+    if (data.start_time >= data.end_time) {
+      throw new Error('Invalid time range');
+    }
+
+    // ตรวจสอบห้อง
+    const room = await RoomDB.findById(data.room_id);
+    if (!room) {
+      throw new Error('Room not found');
+    }
+
+    // ตรวจสอบห้องว่าง
+    const available = await BookingDB.checkAvailability(
+      data.room_id,
+      data.booking_date,
+      data.start_time,
+      data.end_time
+    );
+
+    if (!available) {
+      throw new Error('Room not available');
+    }
+
+    // สร้างการจอง
+    return await BookingDB.create({
+      ...data,
+      status: 'pending'
+    });
+  }
+
+  static async cancelBooking(booking_id, user_id) {
+    const booking = await BookingDB.findById(booking_id);
+
+    if (!booking) {
+      throw new Error('Booking not found');
+    }
+
+    if (booking.user_id !== user_id) {
+      throw new Error('Unauthorized');
+    }
+
+    return await BookingDB.updateStatus(booking_id, 'cancelled');
+  }
+}
+
+module.exports = BookingService;
+
+
+
+// ================================================================
+// ===== DATABASE LAYER =====
+// ================================================================
+
+// database/room.db.js
+const db = require('./connection');
+
+class RoomDatabase {
+  static async findAll() {
+    const sql = `SELECT * FROM rooms`;
+    return db.query(sql);
+  }
+
+  static async findById(id) {
+    const sql = `SELECT * FROM rooms WHERE id = ?`;
+    return db.queryOne(sql, [id]);
+  }
+}
+
+module.exports = RoomDatabase;
+
+
+// database/booking.db.js
+class BookingDatabase {
+
+  static async create(data) {
+    const sql = `
+      INSERT INTO bookings
+      (user_id, room_id, booking_date, start_time, end_time, purpose, status)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
+    return db.execute(sql, [
+      data.user_id,
+      data.room_id,
+      data.booking_date,
+      data.start_time,
+      data.end_time,
+      data.purpose,
+      data.status
+    ]);
+  }
+
+  static async checkAvailability(room_id, date, start, end) {
+    const sql = `
+      SELECT * FROM bookings
+      WHERE room_id = ?
+        AND booking_date = ?
+        AND status != 'cancelled'
+        AND start_time < ?
+        AND end_time > ?
+    `;
+    const result = await db.query(sql, [room_id, date, end, start]);
+    return result.length === 0;
+  }
+
+  static async findById(id) {
+    const sql = `SELECT * FROM bookings WHERE id = ?`;
+    return db.queryOne(sql, [id]);
+  }
+
+  static async updateStatus(id, status) {
+    const sql = `UPDATE bookings SET status = ? WHERE id = ?`;
+    return db.execute(sql, [status, id]);
+  }
+}
+
+module.exports = BookingDatabase;
