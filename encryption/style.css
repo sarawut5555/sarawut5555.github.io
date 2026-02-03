@@ -1,0 +1,298 @@
+:root {
+  --bg-color: #0f172a;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --primary: #6366f1;
+  --secondary: #94a3b8;
+  --accent: #10b981;
+  --text-main: #f8fafc;
+  --text-dim: #94a3b8;
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --decrypt-neon: #fbbf24;
+  --decrypt-glow: rgba(251, 191, 36, 0.3);
+  --encrypt-glow: rgba(99, 102, 241, 0.5);
+  --encrypt-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --download-primary: #10b981;
+  --download-hover: #059669;
+  --download-shadow: rgba(16, 185, 129, 0.4);
+  --file-primary: #06b6d4;
+  --file-glow: rgba(6, 182, 212, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-main);
+  overflow: hidden;
+}
+
+.app {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+  z-index: 1;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-weight: 300;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+h1 span {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+input[readonly] {
+  color: var(--secondary);
+  font-size: 0.85rem;
+  cursor: default;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+button {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.9rem;
+}
+
+.btn-primary.encrypt {
+  background: var(--encrypt-gradient);
+  color: #ffffff;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-primary.encrypt:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px var(--encrypt-glow);
+  filter: brightness(1.1);
+}
+
+
+.btn-primary.encrypt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: all 0.6s;
+}
+
+.btn-primary.encrypt:hover::before {
+  left: 100%;
+}
+
+.btn-outline.decrypt {
+  background: rgba(251, 191, 36, 0.05); /* พื้นหลังจางๆ */
+  border: 1px solid var(--decrypt-neon);
+  color: var(--decrypt-neon);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: inset 0 0 10px rgba(251, 191, 36, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline.decrypt:hover {
+  background: var(--decrypt-neon);
+  color: #000; /* ตัวหนังสือดำตัดกับสีส้มสว่าง */
+  box-shadow: 0 0 20px var(--decrypt-glow);
+  transform: translateY(-2px);
+}
+
+/* แถม: เพิ่ม Effect เส้นสแกนวิ่งผ่านปุ่ม (Optional) */
+.btn-outline.decrypt::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(30deg);
+  transition: all 0.5s;
+}
+
+.btn-outline.decrypt:hover::after {
+  left: 120%;
+}
+
+.btn-secondary {
+  background: rgba(6, 182, 212, 0.15);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.5);
+  white-space: nowrap;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 0 10px rgba(6, 182, 212, 0.1);
+}
+
+.btn-secondary:hover {
+  background: var(--file-primary);
+  color: #ffffff;
+  border-color: var(--file-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px var(--file-glow);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  filter: brightness(0.9);
+}
+
+.btn-download {
+  background: linear-gradient(135deg, var(--download-primary) 0%, #34d399 100%);
+  color: white;
+  white-space: nowrap;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px var(--download-shadow);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* เผื่อพี่แซมใส่ Icon ลูกศรลง */
+}
+
+.btn-download:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--download-shadow);
+  filter: brightness(1.05);
+}
+
+.btn-download:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px var(--download-shadow);
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+
+.btn-download.ready {
+  animation: pulse-green 2s infinite;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--glass-border);
+  margin: 25px 0;
+}
+
+footer {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.7rem;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* เอฟเฟกต์ปุ่มกด */
+button:active {
+  transform: scale(0.95);
+}

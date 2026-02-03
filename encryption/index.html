@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>RC4 Encryption</title>
+</head>
+<body>
+    <div class="background-blobs"></div>
+    <div class="app">
+        <header>
+            <h1>RC4 <span>Cipher</span></h1>
+            <p class="subtitle">Secure Image Encryption System</p>
+        </header>
+
+        <div class="card">
+            <div class="input-group">
+                <label>Source Image</label>
+                <div class="row">
+                    <button type="button" class="btn-secondary" id="infileBtn">Select File</button>
+                    <input type="text" id="inPath" placeholder="No file selected" readonly>
+                    <input type="file" id="infile" accept="image/*" hidden>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Secret Key</label>
+                <input type="password" id="key" placeholder="Put your password">
+            </div>
+
+            <div class="action-grid">
+                <button class="btn-primary encrypt" onclick="encrypt()">Encrypt Now</button>
+                <button class="btn-outline decrypt" onclick="decrypt()">Decrypt Now</button>
+            </div>
+
+            <hr class="divider">
+
+            <div class="input-group">
+                <label>Output Status</label>
+                <div class="row">
+                    <input type="text" id="outPath" placeholder="Result will appear here" readonly>
+                    <button class="btn-download ready" onclick="download()">Download</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            ENGCE110 &bull; Sarawut &bull; Achitphon &bull; Peesiravit
+        </footer>
+    </div>
+</body>
+</html>
