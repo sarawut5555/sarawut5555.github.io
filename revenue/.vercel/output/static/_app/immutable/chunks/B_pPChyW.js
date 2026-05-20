@@ -1,0 +1,1 @@
+const a=["Food","Transport","Shopping","Bills","Entertainment","Other"],t=["Salary","Investment","Other"],n=10,s=[{href:"/dashboard",label:"Dashboard",icon:"layout"},{href:"/transactions",label:"Transactions",icon:"list"},{href:"/analytics",label:"Analytics",icon:"chart"}];export{a as E,t as I,s as N,n as P};

@@ -1,0 +1,1 @@
+import{bg as n}from"./DpWMplyU.js";function c(){const{subscribe:e,update:o}=n([]);return{subscribe:e,show(s,i="info"){const t=crypto.randomUUID();o(r=>[...r,{id:t,message:s,type:i}]),setTimeout(()=>{o(r=>r.filter(a=>a.id!==t))},3500)},dismiss(s){o(i=>i.filter(t=>t.id!==s))}}}const f=c();export{f as t};
