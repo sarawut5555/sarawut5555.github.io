@@ -55,7 +55,7 @@
 				>
 					{#if $darkMode}☀️{:else}🌙{/if}
 				</button>
-				<button class="btn-secondary" onclick={logout}>Logout</button>
+				<button class="btn-secondary cursor-pointer" onclick={logout}>Logout</button>
 			</div>
 		</header>
 
