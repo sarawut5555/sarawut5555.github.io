@@ -3,9 +3,11 @@
 	import { fly } from 'svelte/transition';
 
 	const typeStyles: Record<string, string> = {
-		success: 'border-emerald-400/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300',
-		error: 'border-rose-400/40 bg-rose-500/10 text-rose-700 dark:text-rose-300',
-		info: 'border-indigo-400/40 bg-indigo-500/10 text-indigo-700 dark:text-indigo-300'
+		success:
+			'border-emerald-400/40 bg-emerald-500/10 text-emerald-800 dark:border-emerald-500/30 dark:bg-emerald-500/15 dark:text-emerald-300',
+		error:
+			'border-rose-400/40 bg-rose-500/10 text-rose-800 dark:border-rose-500/30 dark:bg-rose-500/15 dark:text-rose-300',
+		info: 'border-indigo-400/40 bg-indigo-500/10 text-indigo-800 dark:border-indigo-500/30 dark:bg-indigo-500/15 dark:text-indigo-300'
 	};
 </script>
 
@@ -18,7 +20,7 @@
 		>
 			<span>{toast.message}</span>
 			<button
-				class="opacity-60 hover:opacity-100"
+				class="text-slate-600 opacity-70 hover:opacity-100 dark:text-slate-300"
 				onclick={() => toasts.dismiss(toast.id)}
 				aria-label="Dismiss"
 			>

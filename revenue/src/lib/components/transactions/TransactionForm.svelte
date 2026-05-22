@@ -59,8 +59,8 @@
 		<button
 			type="button"
 			class="rounded-lg py-2 text-sm font-semibold transition {type === 'expense'
-				? 'bg-white shadow dark:bg-slate-700'
-				: 'text-slate-500'}"
+				? 'toggle-active'
+				: 'toggle-inactive'}"
 			onclick={() => (type = 'expense')}
 		>
 			Expense
@@ -68,8 +68,8 @@
 		<button
 			type="button"
 			class="rounded-lg py-2 text-sm font-semibold transition {type === 'income'
-				? 'bg-white shadow dark:bg-slate-700'
-				: 'text-slate-500'}"
+				? 'toggle-active'
+				: 'toggle-inactive'}"
 			onclick={() => (type = 'income')}
 		>
 			Income
@@ -77,13 +77,13 @@
 	</div>
 
 	<div>
-		<label class="mb-1 block text-xs font-medium text-slate-500" for="amount">Amount</label>
+		<label class="text-label mb-1 block" for="amount">Amount</label>
 		<input id="amount" class="input-field" type="number" step="0.01" min="0" bind:value={amount} />
-		{#if errors.amount}<p class="mt-1 text-xs text-rose-500">{errors.amount}</p>{/if}
+		{#if errors.amount}<p class="mt-1 text-xs text-rose-600 dark:text-rose-400">{errors.amount}</p>{/if}
 	</div>
 
 	<div>
-		<label class="mb-1 block text-xs font-medium text-slate-500" for="category">Category</label>
+		<label class="text-label mb-1 block" for="category">Category</label>
 		<select id="category" class="input-field" bind:value={category}>
 			{#each categoryList as cat}
 				<option value={cat}>{cat}</option>
@@ -92,14 +92,19 @@
 	</div>
 
 	<div>
-		<label class="mb-1 block text-xs font-medium text-slate-500" for="note">Note</label>
-		<textarea id="note" class="input-field min-h-[80px]" bind:value={note} placeholder="Optional details"></textarea>
+		<label class="text-label mb-1 block" for="note">Note</label>
+		<textarea
+			id="note"
+			class="input-field min-h-[80px]"
+			bind:value={note}
+			placeholder="Optional details"
+		></textarea>
 	</div>
 
 	<div>
-		<label class="mb-1 block text-xs font-medium text-slate-500" for="created_at">Date & time</label>
+		<label class="text-label mb-1 block" for="created_at">Date & time</label>
 		<input id="created_at" class="input-field" type="datetime-local" bind:value={created_at} />
-		{#if errors.created_at}<p class="mt-1 text-xs text-rose-500">{errors.created_at}</p>{/if}
+		{#if errors.created_at}<p class="mt-1 text-xs text-rose-600 dark:text-rose-400">{errors.created_at}</p>{/if}
 	</div>
 
 	<button class="btn-primary w-full" type="submit" disabled={loading}>

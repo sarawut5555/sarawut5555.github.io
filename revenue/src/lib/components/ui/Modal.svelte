@@ -14,22 +14,22 @@
 {#if open}
 	<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
 	<div
-		class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4 backdrop-blur-sm"
+		class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm dark:bg-black/60"
 		transition:fade={{ duration: 150 }}
 		onclick={(e) => e.target === e.currentTarget && onclose()}
 		role="presentation"
 	>
 		<div
-			class="glass w-full max-w-lg animate-in p-6 shadow-2xl"
+			class="glass w-full max-w-lg p-6 shadow-2xl"
 			transition:fly={{ y: 16, duration: 200 }}
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="modal-title"
 		>
 			<div class="mb-5 flex items-center justify-between">
-				<h2 id="modal-title" class="text-lg font-semibold">{title}</h2>
+				<h2 id="modal-title" class="text-lg font-semibold text-slate-900 dark:text-white">{title}</h2>
 				<button
-					class="rounded-lg p-1 text-slate-500 transition hover:bg-slate-200/60 dark:hover:bg-slate-700"
+					class="rounded-lg p-1 text-slate-500 transition hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
 					onclick={onclose}
 					aria-label="Close"
 				>

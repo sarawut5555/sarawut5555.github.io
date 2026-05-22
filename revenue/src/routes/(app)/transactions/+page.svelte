@@ -128,7 +128,7 @@
 	<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 		<div>
 			<h1 class="text-2xl font-bold">Transactions</h1>
-			<p class="text-sm text-slate-500">Manage income and expenses</p>
+			<p class="text-sm text-slate-500 dark:text-slate-400">Manage income and expenses</p>
 		</div>
 		<div class="flex flex-wrap gap-2">
 			<button class="btn-secondary" onclick={exportCsv} disabled={exporting}>
@@ -138,32 +138,52 @@
 		</div>
 	</div>
 
-	<div class="glass-card grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
-		<input
-			class="input-field lg:col-span-2"
-			placeholder="Search notes or categories…"
-			bind:value={search}
-			onkeydown={(e) => e.key === 'Enter' && applyFilters()}
-		/>
-		<select class="input-field" bind:value={category}>
-			<option value="">All categories</option>
-			{#each data.categories as cat}
-				<option value={cat}>{cat}</option>
-			{/each}
-		</select>
-		<select class="input-field" bind:value={type}>
-			<option value="">All types</option>
-			<option value="income">Income</option>
-			<option value="expense">Expense</option>
-		</select>
-		<input class="input-field" type="number" bind:value={year} min="2020" max="2100" />
-		<input class="input-field" type="number" bind:value={month} min="1" max="12" />
-		<button class="btn-primary" onclick={() => applyFilters()}>Apply</button>
+	<div class="glass-card">
+		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+			<div class="flex flex-col gap-2 lg:col-span-2">
+				<label class="text-label" for="search">Search</label>
+				<input
+					id="search"
+					class="input-field"
+					placeholder="Search notes or categories…"
+					bind:value={search}
+					onkeydown={(e) => e.key === 'Enter' && applyFilters()}
+				/>
+			</div>
+			<div class="flex flex-col gap-2">
+				<label class="text-label" for="category">Category</label>
+				<select id="category" class="input-field" bind:value={category}>
+					<option value="">All categories</option>
+					{#each data.categories as cat}
+						<option value={cat}>{cat}</option>
+					{/each}
+				</select>
+			</div>
+			<div class="flex flex-col gap-2">
+				<label class="text-label" for="type">Type</label>
+				<select id="type" class="input-field" bind:value={type}>
+					<option value="">All types</option>
+					<option value="income">Income</option>
+					<option value="expense">Expense</option>
+				</select>
+			</div>
+			<div class="flex flex-col gap-2">
+				<label class="text-label" for="year">Year</label>
+				<input id="year" class="input-field" type="number" bind:value={year} min="2020" max="2100" />
+			</div>
+			<div class="flex flex-col gap-2">
+				<label class="text-label" for="month">Month</label>
+				<input id="month" class="input-field" type="number" bind:value={month} min="1" max="12" />
+			</div>
+			<div class="flex items-end">
+				<button class="btn-primary w-full" onclick={() => applyFilters()}>Apply</button>
+			</div>
+		</div>
 	</div>
 
-	<div class="flex items-center justify-between text-sm">
+	<div class="flex items-center justify-between text-sm text-slate-700 dark:text-slate-300">
 		<label class="flex items-center gap-2">
-			Sort
+			<span class="text-slate-500 dark:text-slate-400">Sort</span>
 			<select
 				class="input-field !w-auto py-1"
 				bind:value={sort}
@@ -173,7 +193,7 @@
 				<option value="asc">Oldest first</option>
 			</select>
 		</label>
-		<p class="text-slate-500">{data.total} total</p>
+		<p class="text-slate-500 dark:text-slate-400">{data.total} total</p>
 	</div>
 
 	{#if data.transactions.length}
@@ -182,7 +202,7 @@
 			{#if data.filters.page > 1}
 				<a class="btn-secondary" href={buildUrl({ page: data.filters.page - 1 })}>Previous</a>
 			{/if}
-			<span class="flex items-center px-3 text-sm text-slate-500">
+			<span class="flex items-center px-3 text-sm text-slate-500 dark:text-slate-400">
 				Page {data.filters.page} of {totalPages}
 			</span>
 			{#if data.filters.page < totalPages}

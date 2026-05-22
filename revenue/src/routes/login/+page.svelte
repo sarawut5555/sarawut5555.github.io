@@ -23,22 +23,24 @@
 	}
 </script>
 
-<div class="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-violet-50 p-4 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950">
+<div
+	class="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-violet-50 p-4 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950"
+>
 	<div class="glass w-full max-w-md p-8">
 		<div class="mb-8 text-center">
-			<h1 class="text-2xl font-bold">
+			<h1 class="text-2xl font-bold text-slate-900 dark:text-white">
 				<span class="text-indigo-600 dark:text-indigo-400">Flow</span>Finance
 			</h1>
-			<p class="mt-2 text-sm text-slate-500">Sign in to manage your finances</p>
+			<p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Sign in to manage your finances</p>
 		</div>
 
 		<form class="space-y-4" onsubmit={login}>
 			<div>
-				<label class="mb-1 block text-xs font-medium text-slate-500" for="email">Email</label>
+				<label class="text-label mb-1 block" for="email">Email</label>
 				<input id="email" class="input-field" type="email" required bind:value={email} autocomplete="email" />
 			</div>
 			<div>
-				<label class="mb-1 block text-xs font-medium text-slate-500" for="password">Password</label>
+				<label class="text-label mb-1 block" for="password">Password</label>
 				<input
 					id="password"
 					class="input-field"
@@ -54,9 +56,9 @@
 			</button>
 		</form>
 
-		<p class="mt-6 text-center text-sm text-slate-500">
+		<p class="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
 			No account?
-			<a href="/signup" class="font-semibold text-indigo-600 hover:underline dark:text-indigo-400">Create one</a>
+			<a href="/signup" class="text-link">Create one</a>
 		</p>
 	</div>
 </div>

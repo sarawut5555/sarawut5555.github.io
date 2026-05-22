@@ -8,7 +8,7 @@
 </script>
 
 <div
-	class="inline-block animate-spin rounded-full border-2 border-indigo-200 border-t-indigo-600 {sizes[size]}"
+	class="inline-block animate-spin rounded-full border-2 border-indigo-200 border-t-indigo-600 dark:border-slate-600 dark:border-t-indigo-400 {sizes[size]}"
 	role="status"
 	aria-label="Loading"
 ></div>

@@ -21,8 +21,10 @@
 <div class="glass-card group">
 	<div class="mb-3 h-1 w-12 rounded-full bg-gradient-to-r {accents[variant]}"></div>
 	<p class="text-sm font-medium text-slate-500 dark:text-slate-400">{label}</p>
-	<p class="mt-1 text-2xl font-bold tracking-tight">{formatCurrency(value)}</p>
+	<p class="mt-1 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+		{formatCurrency(value)}
+	</p>
 	{#if trend}
-		<p class="mt-2 text-xs text-slate-500">{trend}</p>
+		<p class="mt-2 text-xs text-slate-500 dark:text-slate-400">{trend}</p>
 	{/if}
 </div>
