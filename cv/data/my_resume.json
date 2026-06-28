@@ -1,0 +1,76 @@
+{
+  "contact": {
+    "full_name": "Sarawut Kaikaew",
+    "email": "sarawutkai99@gmail.com",
+    "phone": "+66 83 941 0549",
+    "location": "Chiang Mai, Thailand",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sarawut-kaikaew/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/sarawut5555"
+      }
+    ],
+    "github": "",
+    "linkedin": "",
+    "portfolio": ""
+  },
+  "education": [
+    {
+      "degree": "B.Eng. (Computer Engineering)",
+      "institution": "Rajamangala University of Technology Lanna",
+      "duration": "2024 - present",
+      "gpa": "",
+      "gpax": "3.62"
+    },
+    {
+      "degree": "Diploma in Vocational Ed. (Computer Software Developer)",
+      "institution": "Chiang Mai Technical College",
+      "duration": "2022 - 2024",
+      "gpa": "",
+      "gpax": "3.74"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Educatique Co., Ltd. (Internship)",
+      "duration": "February 2023 - April 2023",
+      "description": "• Developed educational programming content using Block-Based Coding.\n• Worked with IoT boards and sensors to build and test embedded system projects.\n• Implemented device control programs using Python and C/C++.\n• Assisted in developing educational software and technical learning materials.",
+      "selected_projects": [],
+      "bullets": []
+    }
+  ],
+  "projects": [
+    {
+      "name": "Competitive Coding Platform for Computer Engineering Student",
+      "description": "• Developed a full-stack web application using Next.js and MongoDB.\n• Built responsive frontend interfaces and backend RESTful APIs.\n• Integrated MongoDB for efficient data management and retrieval.\n• Implemented secure authentication and role-based authorization.\n• Collaborated with the team to build scalable and maintainable features.",
+      "link": ""
+    },
+    {
+      "name": "Online Curriculum for prospective students",
+      "description": "• Developed the frontend using SvelteKit and Tailwind CSS.\n• Designed and implemented RESTful APIs with Node.js and Express.js.\n• Retrieved and managed data from a MySQL database.\n• Integrated APIs with frontend components to deliver dynamic content.\n• Collaborated with the team to implement new features and maintain code quality.",
+      "link": ""
+    }
+  ],
+  "tech_stack": "SvelteKit, React, Next.js, Node.js (JavaScript/TypeScript), TailwindCSS, Bootstrap, MySQL, SQlite, MongoDB, Supabase, Docker, Vercel, netlify, Figma",
+  "languages": [
+    {
+      "name": "Thai",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Basic"
+    }
+  ],
+  "section_order": [
+    "education",
+    "experience",
+    "projects",
+    "skills"
+  ],
+  "template": "public"
+}

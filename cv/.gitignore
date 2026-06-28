@@ -1,0 +1,18 @@
+# Generated output
+output/*.pdf
+output/*.html
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

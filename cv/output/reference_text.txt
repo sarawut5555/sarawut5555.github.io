@@ -1,0 +1,54 @@
+ 
+Maythiwat Chomchuen 
+Chiang Mai, Thailand  |  [email censored]  | [phone number censored] 
+linkedin.com/in/maythiwat
+github.com/maythiwat
+maythiwat.com
+ 
+EDUCATION 
+ 
+B.Eng. (Computer Engineering), Rajamangala University of Technology Lanna​
+2024 - present 
+Diploma in Vocational Ed. (Industrial Electronics), Uttaradit Technical College​
+2022 - 2024 
+ 
+EXPERIENCES 
+ 
+Freelance Software Developer ​
+2018 - present 
+Designed and developed full-stack web applications for various clients 
+Selected Projects:  
+●​ AAR/Registration Office Website - Rajamangala University of Technology Lanna​
+Designed and developed the “academic.rmutl.ac.th” website using SvelteKit and Node.js​
+Integrated the website with an in-house CMS and registration system​
+Implemented new features such as the student portal and course section search 
+●​ Game Top-up & Cash Card E-commerce Website - MT-Topup Co., Ltd.​
+Designed and developed the MT-Topup website using SvelteKit and Node.js​
+Integrated multiple payment gateways and game distributor APIs 
+●​ dtac top-up & AIS add-on package Mini-app on TrueMoney - [censored]​
+Developed React-based mini-app frontend for the TrueMoney application​
+Implemented dtac top-up and add-on package features and AIS add-on package features via 
+[censored]’s APIs, in compliance with TrueMoney CI guidelines 
+ 
+Software Developer - RDCW Co., Ltd. (Internship)​
+May 2023 - October 2023 
+Designed and developed an early version of the “Slip Verify by RDCW” system, a bank transfer 
+slip verification service for e-commerce businesses and developers. 
+Integrated [censored] Bank Open API to verify bank transfer slips from supported banks 
+ 
+Web Developer / IT - Uttaradit Provincial Prison (Internship)​
+May 2021 - October 2021 
+Designed and developed an organizational website and a COVID-19 reporting system using PHP 
+ 
+PROJECTS 
+ 
+promptparse - All-in-one JS library for PromptPay & EMVCo QR Codes “Parse, Generate, 
+Manipulate, Validate” - github.com/maythiwat/promptparse  
+Makerneed - Online 3D Printing Platform, Instant price estimation - makerneed.com 
+VTuber FavorList - VTuber Statistics Platform (Thailand & Worldwide) - vtuber.favorlist.com  
+ 
+SKILLS 
+ 
+Tech Stack: SvelteKit, React, Next.js, Node.js & Bun (JavaScript/TypeScript), TailwindCSS, 
+Bootstrap, PHP, MySQL, MongoDB, Docker, Vercel, Cloudflare (WAF, Pages, Workers), Figma 
+Languages: Thai (Native), English (Intermediate) 

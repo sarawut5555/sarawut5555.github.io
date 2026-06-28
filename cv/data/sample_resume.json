@@ -1,0 +1,99 @@
+{
+  "contact": {
+    "full_name": "Maythiwat Chomchuen",
+    "email": "hello@example.com",
+    "phone": "+66 XX XXX XXXX",
+    "github": "https://github.com/maythiwat",
+    "linkedin": "https://linkedin.com/in/maythiwat",
+    "portfolio": "https://maythiwat.com",
+    "location": "Chiang Mai, Thailand"
+  },
+  "education": [
+    {
+      "degree": "B.Eng. (Computer Engineering)",
+      "institution": "Rajamangala University of Technology Lanna",
+      "duration": "2024 - present"
+    },
+    {
+      "degree": "Diploma in Vocational Ed. (Industrial Electronics)",
+      "institution": "Uttaradit Technical College",
+      "duration": "2022 - 2024"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Freelance Software Developer",
+      "duration": "2018 - present",
+      "description": "Designed and developed full-stack web applications for various clients",
+      "selected_projects": [
+        {
+          "name": "AAR/Registration Office Website - Rajamangala University of Technology Lanna",
+          "bullets": [
+            "Designed and developed the academic portal website using SvelteKit and Node.js",
+            "Integrated the website with an in-house CMS and registration system",
+            "Implemented new features such as the student portal and course section search"
+          ]
+        },
+        {
+          "name": "Game Top-up & Cash Card E-commerce Website - MT-Topup Co., Ltd.",
+          "bullets": [
+            "Designed and developed the MT-Topup website using SvelteKit and Node.js",
+            "Integrated multiple payment gateways and game distributor APIs"
+          ]
+        }
+      ],
+      "bullets": []
+    },
+    {
+      "title": "Software Developer - RDCW Co., Ltd. (Internship)",
+      "duration": "May 2023 - October 2023",
+      "description": "Designed and developed an early version of the \"Slip Verify by RDCW\" system, a bank transfer slip verification service for e-commerce businesses and developers.",
+      "selected_projects": [],
+      "bullets": [
+        "Integrated bank Open API to verify bank transfer slips from supported banks"
+      ]
+    },
+    {
+      "title": "Web Developer / IT - Uttaradit Provincial Prison (Internship)",
+      "duration": "May 2021 - October 2021",
+      "description": "Designed and developed an organizational website and a COVID-19 reporting system using PHP",
+      "selected_projects": [],
+      "bullets": []
+    }
+  ],
+  "projects": [
+    {
+      "name": "promptparse",
+      "description": "All-in-one JS library for PromptPay & EMVCo QR Codes \"Parse, Generate, Manipulate, Validate\"",
+      "link": "github.com/maythiwat/promptparse"
+    },
+    {
+      "name": "Makerneed",
+      "description": "Online 3D Printing Platform, Instant price estimation",
+      "link": "makerneed.com"
+    },
+    {
+      "name": "VTuber FavorList",
+      "description": "VTuber Statistics Platform (Thailand & Worldwide)",
+      "link": "vtuber.favorlist.com"
+    }
+  ],
+  "tech_stack": "SvelteKit, React, Next.js, Node.js & Bun (JavaScript/TypeScript), TailwindCSS, Bootstrap, PHP, MySQL, MongoDB, Docker, Vercel, Cloudflare (WAF, Pages, Workers), Figma",
+  "languages": [
+    {
+      "name": "Thai",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Intermediate"
+    }
+  ],
+  "section_order": [
+    "education",
+    "experience",
+    "projects",
+    "skills"
+  ],
+  "template": "public"
+}

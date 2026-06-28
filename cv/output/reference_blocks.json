@@ -1,0 +1,389 @@
+[
+  {
+    "text": "Maythiwat Chomchuen ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 22.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 46.9,
+    "x1": 298.0
+  },
+  {
+    "text": "Chiang Mai, Thailand  |  [email censored]  | [phone number censored] ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 83.2,
+    "x1": 397.2
+  },
+  {
+    "text": "linkedin.com/in/maythiwat",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 6710886,
+    "x0": 402.3,
+    "y0": 46.9,
+    "x1": 534.6
+  },
+  {
+    "text": "github.com/maythiwat",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 6710886,
+    "x0": 423.4,
+    "y0": 65.1,
+    "x1": 534.6
+  },
+  {
+    "text": "maythiwat.com",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 6710886,
+    "x0": 458.7,
+    "y0": 83.2,
+    "x1": 534.6
+  },
+  {
+    "text": "EDUCATION ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 14.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 112.9,
+    "x1": 138.0
+  },
+  {
+    "text": "B.Eng. (Computer Engineering), Rajamangala University of Technology Lanna​",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 139.7,
+    "x1": 443.7
+  },
+  {
+    "text": "2024 - present ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 458.1,
+    "y0": 139.7,
+    "x1": 536.4
+  },
+  {
+    "text": "Diploma in Vocational Ed. (Industrial Electronics), Uttaradit Technical College​",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 157.9,
+    "x1": 451.5
+  },
+  {
+    "text": "2022 - 2024 ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 471.6,
+    "y0": 157.9,
+    "x1": 536.6
+  },
+  {
+    "text": "EXPERIENCES ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 14.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 187.6,
+    "x1": 154.1
+  },
+  {
+    "text": "Freelance Software Developer ​",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 214.4,
+    "x1": 218.4
+  },
+  {
+    "text": "2018 - present ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 458.1,
+    "y0": 214.4,
+    "x1": 536.4
+  },
+  {
+    "text": "Designed and developed full-stack web applications for various clients ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 232.5,
+    "x1": 406.4
+  },
+  {
+    "text": "Selected Projects:  ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 250.7,
+    "x1": 152.0
+  },
+  {
+    "text": "●​ AAR/Registration Office Website - Rajamangala University of Technology Lanna​",
+    "font": "ArialMT",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 268.8,
+    "x1": 470.8
+  },
+  {
+    "text": "Designed and developed the “academic.rmutl.ac.th” website using SvelteKit and Node.js​",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 71.1,
+    "y0": 287.0,
+    "x1": 508.9
+  },
+  {
+    "text": "Integrated the website with an in-house CMS and registration system​",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 71.1,
+    "y0": 305.1,
+    "x1": 413.6
+  },
+  {
+    "text": "Implemented new features such as the student portal and course section search ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 71.1,
+    "y0": 323.3,
+    "x1": 469.9
+  },
+  {
+    "text": "●​ Game Top-up & Cash Card E-commerce Website - MT-Topup Co., Ltd.​",
+    "font": "ArialMT",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 341.4,
+    "x1": 422.4
+  },
+  {
+    "text": "Designed and developed the MT-Topup website using SvelteKit and Node.js​",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 71.1,
+    "y0": 359.6,
+    "x1": 443.4
+  },
+  {
+    "text": "Integrated multiple payment gateways and game distributor APIs ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 71.1,
+    "y0": 377.7,
+    "x1": 395.7
+  },
+  {
+    "text": "●​ dtac top-up & AIS add-on package Mini-app on TrueMoney - [censored]​",
+    "font": "ArialMT",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 395.9,
+    "x1": 437.1
+  },
+  {
+    "text": "Developed React-based mini-app frontend for the TrueMoney application​",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 71.1,
+    "y0": 414.0,
+    "x1": 433.1
+  },
+  {
+    "text": "Implemented dtac top-up and add-on package features and AIS add-on package features via ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 71.1,
+    "y0": 432.2,
+    "x1": 531.4
+  },
+  {
+    "text": "[censored]’s APIs, in compliance with TrueMoney CI guidelines ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 71.1,
+    "y0": 450.3,
+    "x1": 382.5
+  },
+  {
+    "text": "Software Developer - RDCW Co., Ltd. (Internship)​",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 473.4,
+    "x1": 307.0
+  },
+  {
+    "text": "May 2023 - October 2023 ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 404.1,
+    "y0": 473.4,
+    "x1": 536.5
+  },
+  {
+    "text": "Designed and developed an early version of the “Slip Verify by RDCW” system, a bank transfer ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 491.6,
+    "x1": 520.9
+  },
+  {
+    "text": "slip verification service for e-commerce businesses and developers. ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 509.7,
+    "x1": 393.5
+  },
+  {
+    "text": "Integrated [censored] Bank Open API to verify bank transfer slips from supported banks ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 527.9,
+    "x1": 492.8
+  },
+  {
+    "text": "Web Developer / IT - Uttaradit Provincial Prison (Internship)​",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 551.0,
+    "x1": 359.2
+  },
+  {
+    "text": "May 2021 - October 2021 ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 404.1,
+    "y0": 551.0,
+    "x1": 536.5
+  },
+  {
+    "text": "Designed and developed an organizational website and a COVID-19 reporting system using PHP ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 569.1,
+    "x1": 530.6
+  },
+  {
+    "text": "PROJECTS ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 14.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 598.8,
+    "x1": 128.3
+  },
+  {
+    "text": "promptparse - All-in-one JS library for PromptPay & EMVCo QR Codes “Parse, Generate, ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 625.7,
+    "x1": 495.8
+  },
+  {
+    "text": "Manipulate, Validate” - github.com/maythiwat/promptparse  ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 643.8,
+    "x1": 357.2
+  },
+  {
+    "text": "Makerneed - Online 3D Printing Platform, Instant price estimation - makerneed.com ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 661.9,
+    "x1": 474.9
+  },
+  {
+    "text": "VTuber FavorList - VTuber Statistics Platform (Thailand & Worldwide) - vtuber.favorlist.com  ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 680.1,
+    "x1": 513.3
+  },
+  {
+    "text": "SKILLS ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 14.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 709.8,
+    "x1": 106.2
+  },
+  {
+    "text": "Tech Stack: SvelteKit, React, Next.js, Node.js & Bun (JavaScript/TypeScript), TailwindCSS, ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 736.6,
+    "x1": 502.6
+  },
+  {
+    "text": "Bootstrap, PHP, MySQL, MongoDB, Docker, Vercel, Cloudflare (WAF, Pages, Workers), Figma ",
+    "font": "IBMPlexSansThai-Regular",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 754.8,
+    "x1": 509.5
+  },
+  {
+    "text": "Languages: Thai (Native), English (Intermediate) ",
+    "font": "IBMPlexSansThai-Bold",
+    "size": 11.0,
+    "color": 0,
+    "x0": 57.6,
+    "y0": 772.9,
+    "x1": 300.7
+  }
+]
