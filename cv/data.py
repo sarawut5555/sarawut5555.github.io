@@ -14,6 +14,7 @@ from typing import Any, Dict, List
 
 
 DEFAULT_SECTION_ORDER: List[str] = [
+    "summary",
     "education",
     "experience",
     "projects",
@@ -107,7 +108,9 @@ class ResumeData:
     education: List[Education] = field(default_factory=list)
     experience: List[Experience] = field(default_factory=list)
     projects: List[Project] = field(default_factory=list)
+    summary: str = ""
     tech_stack: str = ""
+    familiar_stack: str = ""
     languages: List[Language] = field(default_factory=list)
     section_order: List[str] = field(default_factory=lambda: list(DEFAULT_SECTION_ORDER))
     template: str = "public"
@@ -178,7 +181,9 @@ class ResumeData:
             education=education,
             experience=experience,
             projects=projects,
+            summary=payload.get("summary", ""),
             tech_stack=payload.get("tech_stack", _legacy_tech_stack(payload)),
+            familiar_stack=payload.get("familiar_stack", ""),
             languages=languages,
             section_order=payload.get("section_order", list(DEFAULT_SECTION_ORDER)),
             template=payload.get("template", "public"),

@@ -87,7 +87,10 @@ class PublicResumeTemplate(BaseResumeTemplate):
         y = self._draw_header(c, data, theme, y)
 
         for section in data.section_order:
-            if section == "education" and data.education:
+            if section == "summary" and getattr(data, "summary", ""):
+                y = self._draw_section(c, theme, y, "SUMMARY")
+                y = self._draw_summary(c, data, theme, y)
+            elif section == "education" and data.education:
                 y = self._draw_section(c, theme, y, "EDUCATION")
                 y = self._draw_education(c, data, theme, y)
             elif section == "experience" and data.experience:
@@ -143,6 +146,11 @@ class PublicResumeTemplate(BaseResumeTemplate):
             y -= line_h
 
         return y - theme.section_gap
+
+    def _draw_summary(self, c: canvas.Canvas, data: ResumeData, theme: Theme, y: float) -> float:
+        if not getattr(data, "summary", ""):
+            return y
+        return self._draw_wrapped(c, data.summary, theme.margin_left, y, theme.content_width, theme)
 
     def _draw_centered_link_row(
         self,
@@ -298,25 +306,36 @@ class PublicResumeTemplate(BaseResumeTemplate):
                 c.drawString(theme.margin_left, y - theme.size_body * 0.8, line)
                 y -= line_h
             
-            # Draw Institution (University/College) below degree
+            # Draw Institution (University/College) below degree with GPA/GPAX inline
             if edu.institution:
+                gpa_parts = []
+                if edu.gpa:
+                    gpa_parts.append(f"GPA: {edu.gpa}")
+                if edu.gpax:
+                    gpa_parts.append(f"GPAX: {edu.gpax}")
+                
+                inst_text = edu.institution
+                if gpa_parts:
+                    inst_text += f" ({', '.join(gpa_parts)})"
+
                 c.setFont(theme.font_regular, theme.size_body)
                 c.setFillColor(self._hex(theme.text_primary))
-                inst_lines = wrap_text_lines(edu.institution, theme.content_width, theme.size_body, theme.font_regular)
+                inst_lines = wrap_text_lines(inst_text, theme.content_width, theme.size_body, theme.font_regular)
                 for line in inst_lines:
                     c.drawString(theme.margin_left, y - theme.size_body * 0.8, line)
                     y -= line_h
-
-            gpa_parts = []
-            if edu.gpa:
-                gpa_parts.append(f"GPA: {edu.gpa}")
-            if edu.gpax:
-                gpa_parts.append(f"GPAX: {edu.gpax}")
-            if gpa_parts:
-                c.setFont(theme.font_regular, theme.size_body)
-                c.setFillColor(self._hex(theme.text_primary))
-                c.drawString(theme.margin_left, y - theme.size_body * 0.8, "  |  ".join(gpa_parts))
-                y -= line_h
+            else:
+                # In case there's no institution but there is a GPA/GPAX
+                gpa_parts = []
+                if edu.gpa:
+                    gpa_parts.append(f"GPA: {edu.gpa}")
+                if edu.gpax:
+                    gpa_parts.append(f"GPAX: {edu.gpax}")
+                if gpa_parts:
+                    c.setFont(theme.font_regular, theme.size_body)
+                    c.setFillColor(self._hex(theme.text_primary))
+                    c.drawString(theme.margin_left, y - theme.size_body * 0.8, f"({', '.join(gpa_parts)})")
+                    y -= line_h
 
         return y - theme.entry_gap
 
@@ -394,7 +413,7 @@ class PublicResumeTemplate(BaseResumeTemplate):
         line_h = theme.size_body * theme.line_height
 
         if data.tech_stack:
-            prefix = "Tech Stack: "
+            prefix = "Primary: "
             c.setFont(theme.font_bold, theme.size_body)
             pw = c.stringWidth(prefix, theme.font_bold, theme.size_body)
             c.setFillColor(self._hex(theme.text_primary))
@@ -402,6 +421,26 @@ class PublicResumeTemplate(BaseResumeTemplate):
 
             remaining = theme.content_width - pw
             lines = wrap_text_lines(data.tech_stack, remaining, theme.size_body, theme.font_regular)
+            c.setFont(theme.font_regular, theme.size_body)
+            if lines:
+                c.drawString(theme.margin_left + pw, y - theme.size_body * 0.8, lines[0])
+                y -= line_h
+                for line in lines[1:]:
+                    c.drawString(theme.margin_left, y - theme.size_body * 0.8, line)
+                    y -= line_h
+            else:
+                y -= line_h
+
+        familiar = getattr(data, "familiar_stack", "")
+        if familiar:
+            prefix = "Familiar: "
+            c.setFont(theme.font_bold, theme.size_body)
+            pw = c.stringWidth(prefix, theme.font_bold, theme.size_body)
+            c.setFillColor(self._hex(theme.text_primary))
+            c.drawString(theme.margin_left, y - theme.size_body * 0.8, prefix)
+
+            remaining = theme.content_width - pw
+            lines = wrap_text_lines(familiar, remaining, theme.size_body, theme.font_regular)
             c.setFont(theme.font_regular, theme.size_body)
             if lines:
                 c.drawString(theme.margin_left + pw, y - theme.size_body * 0.8, lines[0])
@@ -450,15 +489,26 @@ class PublicResumeTemplate(BaseResumeTemplate):
             if getattr(link, "url", "")
         )
 
-        edu_html = "".join(
-            f'<div class="row"><span class="bold">{e.degree}, {e.institution}</span>'
-            f'<span class="date">{e.duration}</span></div>'
-            + (
-                f'<p class="gpa">{"  |  ".join(p for p in [f"GPA: {e.gpa}" if e.gpa else "", f"GPAX: {e.gpax}" if e.gpax else ""] if p)}</p>'
-                if e.gpa or e.gpax else ""
+        edu_html = ""
+        for e in data.education:
+            gpa_parts = []
+            if e.gpa:
+                gpa_parts.append(f"GPA: {e.gpa}")
+            if e.gpax:
+                gpa_parts.append(f"GPAX: {e.gpax}")
+            
+            inst_display = e.institution
+            if gpa_parts:
+                if inst_display:
+                    inst_display += f" ({', '.join(gpa_parts)})"
+                else:
+                    inst_display = f"({', '.join(gpa_parts)})"
+            
+            edu_html += (
+                f'<div class="row"><span class="bold">{e.degree}'
+                f'{", " + inst_display if inst_display else ""}</span>'
+                f'<span class="date">{e.duration}</span></div>'
             )
-            for e in data.education
-        )
 
         exp_html = ""
         for exp in data.experience:
@@ -486,6 +536,17 @@ class PublicResumeTemplate(BaseResumeTemplate):
 
         langs = ", ".join(f"{l.name} ({l.level})" for l in data.languages)
 
+        familiar_html = ""
+        familiar_html = ""
+        familiar = getattr(data, "familiar_stack", "")
+        if familiar:
+            familiar_html = f'<p><strong>Familiar:</strong> {familiar}</p>'
+
+        summary_html = ""
+        summary_val = getattr(data, "summary", "")
+        if summary_val:
+            summary_html = f'<h2>Summary</h2><p>{html_text(summary_val)}</p>'
+
         return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{c.full_name}</title>
@@ -510,11 +571,13 @@ class PublicResumeTemplate(BaseResumeTemplate):
   <div class="links">{links_html.replace("<br>", " | ")}</div>
   <p class="contact">{c.location} &nbsp;|&nbsp; {c.email} &nbsp;|&nbsp; {c.phone}</p>
 </div>
+{summary_html}
 <h2>Education</h2>{edu_html}
 <h2>Experiences</h2>{exp_html}
 <h2>Projects</h2>{proj_html}
 <h2>Skills</h2>
-<p><strong>Tech Stack:</strong> {data.tech_stack}</p>
+<p><strong>Primary:</strong> {data.tech_stack}</p>
+{familiar_html}
 <p><strong>Languages:</strong> {langs}</p>
 </body></html>"""
 

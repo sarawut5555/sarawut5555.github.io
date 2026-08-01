@@ -38,7 +38,7 @@
     {
       "title": "Educatique Co., Ltd. (Internship)",
       "duration": "February 2023 - April 2023",
-      "description": "• Developed educational programming content using Block-Based Coding.\n• Worked with IoT boards and sensors to build and test embedded system projects.\n• Implemented device control programs using Python and C/C++.\n• Assisted in developing educational software and technical learning materials.",
+      "description": "Developed educational programming content using block-based coding and assisted in creating educational software and technical learning materials. Built and tested embedded system projects with IoT boards and sensors using Python and C/C++.",
       "selected_projects": [],
       "bullets": []
     }
@@ -46,16 +46,18 @@
   "projects": [
     {
       "name": "Competitive Coding Platform for Computer Engineering Student",
-      "description": "• Developed a full-stack web application using Next.js and MongoDB.\n• Built responsive frontend interfaces and backend RESTful APIs.\n• Integrated MongoDB for efficient data management and retrieval.\n• Implemented secure authentication and role-based authorization.\n• Collaborated with the team to build scalable and maintainable features.",
-      "link": ""
+      "description": "Developed a full-stack web application using Next.js and MongoDB, building responsive user interfaces and RESTful APIs. Implemented secure authentication, role-based authorization, and collaborated with the team to deliver scalable and maintainable features.",
+      "link": "https://github.com/cpecodebattle/codebattle"
     },
     {
-      "name": "Online Curriculum for prospective students",
-      "description": "• Developed the frontend using SvelteKit and Tailwind CSS.\n• Designed and implemented RESTful APIs with Node.js and Express.js.\n• Retrieved and managed data from a MySQL database.\n• Integrated APIs with frontend components to deliver dynamic content.\n• Collaborated with the team to implement new features and maintain code quality.",
-      "link": ""
+      "name": "Basic PHP & Member Management System",
+      "description": "Developed a PHP-based member management system with CRUD functionality, session-based authentication, and MySQL integration, while completing a collection of fundamental PHP programming exercises.",
+      "link": "https://github.com/sarawut5555/basic_php"
     }
   ],
-  "tech_stack": "SvelteKit, React, Next.js, Node.js (JavaScript/TypeScript), TailwindCSS, Bootstrap, MySQL, SQlite, MongoDB, Supabase, Docker, Vercel, netlify, Figma",
+  "summary": "I'm a third-year Computer Engineering student and an aspiring Full-Stack Developer with a passion for building modern, scalable, and efficient web applications. I enjoy turning ideas into practical software solutions while continuously learning new technologies.",
+  "tech_stack": "SvelteKit, React, Next.js, Node.js (JavaScript/TypeScript), Express.js, TailwindCSS, Bootstrap, MySQL, SQlite, MongoDB, Supabase, DBeaver, Vercel, Netlify, Figma",
+  "familiar_stack": "Python, PHP, JAVA, C, C++, C#",
   "languages": [
     {
       "name": "Thai",
@@ -67,6 +69,7 @@
     }
   ],
   "section_order": [
+    "summary",
     "education",
     "experience",
     "projects",

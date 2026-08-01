@@ -229,6 +229,7 @@ class ExperienceEditor(ctk.CTkScrollableFrame):
 
 class SectionOrderPanel(ctk.CTkFrame):
     SECTION_LABELS = {
+        "summary": "Summary",
         "education": "Education",
         "experience": "Experiences",
         "projects": "Projects",
