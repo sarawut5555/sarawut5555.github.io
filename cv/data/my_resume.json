@@ -20,14 +20,14 @@
   },
   "education": [
     {
-      "degree": "B.Eng. (Computer Engineering)",
+      "degree": "Bachelor of Engineering in Computer Engineering",
       "institution": "Rajamangala University of Technology Lanna",
-      "duration": "2024 - present",
+      "duration": "2024 – Expected 2027",
       "gpa": "",
       "gpax": "3.62"
     },
     {
-      "degree": "Diploma in Vocational Ed. (Computer Software Developer)",
+      "degree": "Higher Vocational Certificate in Computer Software Development",
       "institution": "Chiang Mai Technical College",
       "duration": "2022 - 2024",
       "gpa": "",
@@ -38,7 +38,7 @@
     {
       "title": "Educatique Co., Ltd. (Internship)",
       "duration": "February 2023 - April 2023",
-      "description": "Developed educational programming content using block-based coding and assisted in creating educational software and technical learning materials. Built and tested embedded system projects with IoT boards and sensors using Python and C/C++.",
+      "description": "• Developed educational programming content using MicroBlock.\n• Built and tested embedded system projects with Arduino, ESP32, and micro:bit using Python and C/C++.\n• Assisted in developing educational software and learning materials.",
       "selected_projects": [],
       "bullets": []
     }
@@ -46,18 +46,42 @@
   "projects": [
     {
       "name": "Competitive Coding Platform for Computer Engineering Student",
-      "description": "Developed a full-stack web application using Next.js and MongoDB, building responsive user interfaces and RESTful APIs. Implemented secure authentication, role-based authorization, and collaborated with the team to deliver scalable and maintainable features.",
+      "description": "Developed a full-stack web application using Next.js and MongoDB. Designed responsive user interfaces, implemented RESTful APIs, and integrated secure authentication and role-based authorization.",
       "link": "https://github.com/cpecodebattle/codebattle"
     },
     {
-      "name": "Basic PHP & Member Management System",
-      "description": "Developed a PHP-based member management system with CRUD functionality, session-based authentication, and MySQL integration, while completing a collection of fundamental PHP programming exercises.",
+      "name": "PHP Member Management System",
+      "description": "Developed a PHP-based member management system with CRUD operations, session-based authentication, and MySQL database integration.",
       "link": "https://github.com/sarawut5555/basic_php"
     }
   ],
-  "summary": "I'm a third-year Computer Engineering student and an aspiring Full-Stack Developer with a passion for building modern, scalable, and efficient web applications. I enjoy turning ideas into practical software solutions while continuously learning new technologies.",
-  "tech_stack": "SvelteKit, React, Next.js, Node.js (JavaScript/TypeScript), Express.js, TailwindCSS, Bootstrap, MySQL, SQlite, MongoDB, Supabase, DBeaver, Vercel, Netlify, Figma",
-  "familiar_stack": "Python, PHP, JAVA, C, C++, C#",
+  "summary": "Third-year Computer Engineering student with hands-on experience in full-stack web development using SvelteKit, Next.js, Node.js, Express.js, and MySQL. Passionate about building scalable web applications and continuously improving software engineering skills.",
+  "skills": [
+    {
+      "name": "Programming Languages",
+      "items": "JavaScript (ES6+), TypeScript, Python, PHP, Java, C, C++, C#"
+    },
+    {
+      "name": "Frontend",
+      "items": "SvelteKit, React, Next.js, Tailwind CSS, Bootstrap"
+    },
+    {
+      "name": "Backend",
+      "items": "Node.js, Express.js"
+    },
+    {
+      "name": "Databases",
+      "items": "MySQL, SQLite, MongoDB, Supabase"
+    },
+    {
+      "name": "Tools",
+      "items": "Git, GitHub, DBeaver, Figma, Postman, Vercel, Netlify"
+    },
+    {
+      "name": "",
+      "items": ""
+    }
+  ],
   "languages": [
     {
       "name": "Thai",
@@ -65,7 +89,7 @@
     },
     {
       "name": "English",
-      "level": "Basic"
+      "level": "Technical Reading"
     }
   ],
   "section_order": [

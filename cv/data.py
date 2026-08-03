@@ -101,6 +101,14 @@ class Language:
 
 
 @dataclass
+class SkillCategory:
+    """A category of skills (e.g. Frontend: SvelteKit, React)."""
+
+    name: str = ""
+    items: str = ""
+
+
+@dataclass
 class ResumeData:
     """Root container for all resume content."""
 
@@ -109,8 +117,7 @@ class ResumeData:
     experience: List[Experience] = field(default_factory=list)
     projects: List[Project] = field(default_factory=list)
     summary: str = ""
-    tech_stack: str = ""
-    familiar_stack: str = ""
+    skills: List[SkillCategory] = field(default_factory=list)
     languages: List[Language] = field(default_factory=list)
     section_order: List[str] = field(default_factory=lambda: list(DEFAULT_SECTION_ORDER))
     template: str = "public"
@@ -176,14 +183,34 @@ class ResumeData:
 
         languages = [Language(**lang) for lang in payload.get("languages", [])]
 
+        skills = []
+        for s in payload.get("skills", []):
+            if isinstance(s, dict):
+                name = s.get("name", "") or s.get("category", "")
+                items = s.get("items", "")
+                if not items and "skills" in s:
+                    items = ", ".join(
+                        skill.get("name", "") if isinstance(skill, dict) else str(skill)
+                        for skill in s.get("skills", [])
+                    )
+                skills.append(SkillCategory(name=name, items=items))
+            elif isinstance(s, str):
+                skills.append(SkillCategory(name="Skill", items=s))
+
+        if not skills:
+            tech = payload.get("tech_stack", "")
+            fam = payload.get("familiar_stack", "")
+            if tech:
+                skills.append(SkillCategory(name="Primary", items=tech))
+            if fam:
+                skills.append(SkillCategory(name="Familiar", items=fam))
+
         return cls(
             contact=contact,
             education=education,
             experience=experience,
             projects=projects,
-            summary=payload.get("summary", ""),
-            tech_stack=payload.get("tech_stack", _legacy_tech_stack(payload)),
-            familiar_stack=payload.get("familiar_stack", ""),
+            skills=skills,
             languages=languages,
             section_order=payload.get("section_order", list(DEFAULT_SECTION_ORDER)),
             template=payload.get("template", "public"),
@@ -299,10 +326,13 @@ def sample_resume() -> ResumeData:
                 link="vtuber.favorlist.com",
             ),
         ],
-        tech_stack=(
-            "SvelteKit, React, Next.js, Node.js & Bun (JavaScript/TypeScript), TailwindCSS, "
-            "Bootstrap, PHP, MySQL, MongoDB, Docker, Vercel, Cloudflare (WAF, Pages, Workers), Figma"
-        ),
+        skills=[
+            SkillCategory("Frontend", "SvelteKit, React, Next.js, TailwindCSS, Bootstrap"),
+            SkillCategory("Backend", "Node.js & Bun"),
+            SkillCategory("Database", "MySQL, MongoDB"),
+            SkillCategory("Languages", "JavaScript, TypeScript, PHP"),
+            SkillCategory("Tools", "Docker, Vercel, Cloudflare, Figma"),
+        ],
         languages=[
             Language("Thai", "Native"),
             Language("English", "Intermediate"),

@@ -10,7 +10,19 @@ from tkinter import filedialog, messagebox
 
 import customtkinter as ctk
 
-from data import ContactInfo, ContactLink, Education, Experience, Language, Project, ResumeData, SelectedProject, sample_resume
+# เพิ่ม SkillCategory เข้ามาในการ import
+from data import (
+    ContactInfo,
+    ContactLink,
+    Education,
+    Experience,
+    Language,
+    Project,
+    ResumeData,
+    SelectedProject,
+    SkillCategory,
+    sample_resume,
+)
 from gui.components import (
     DynamicListEditor,
     ExperienceEditor,
@@ -165,16 +177,19 @@ class ResumeBuilderApp(ctk.CTk):
 
     def _build_skills_tab(self) -> None:
         tab = self._tabs.add("Skills")
-        self._tech_stack = LabelledTextbox(tab, "Primary Tech Stack (comma-separated)", height=80)
-        self._tech_stack.pack(fill="x", padx=8, pady=(8, 4))
-        self._tech_stack.textbox.bind("<KeyRelease>", lambda _e: self.on_data_changed())
 
-        self._familiar_stack = LabelledTextbox(tab, "Familiar / Others (comma-separated)", height=80)
-        self._familiar_stack.pack(fill="x", padx=8, pady=(4, 8))
-        self._familiar_stack.textbox.bind("<KeyRelease>", lambda _e: self.on_data_changed())
+        self._skills_editor = DynamicListEditor(
+            tab, "Technical Skills",
+            field_defs=[
+                ("name", "Category (e.g. Frontend)", False),
+                ("items", "Skills (comma-separated)", False),
+            ],
+            on_change=self.on_data_changed,
+        )
+        self._skills_editor.pack(fill="both", expand=True, padx=4, pady=4)
 
         self._lang_editor = DynamicListEditor(
-            tab, "Languages",
+            tab, "Spoken Languages",
             field_defs=[("name", "Language", False), ("level", "Level", False)],
             on_change=self.on_data_changed,
         )
@@ -222,8 +237,7 @@ class ResumeBuilderApp(ctk.CTk):
             experience=experience,
             projects=[Project(**p) for p in self._proj_editor.get_items()],
             summary=self._summary.get(),
-            tech_stack=self._tech_stack.get(),
-            familiar_stack=self._familiar_stack.get(),
+            skills=[SkillCategory(name=s["name"], items=s["items"]) for s in self._skills_editor.get_items()],
             languages=[Language(**lang) for lang in self._lang_editor.get_items()],
             section_order=self._order_panel.get_order(),
         )
@@ -236,9 +250,9 @@ class ResumeBuilderApp(ctk.CTk):
         links = d.contact.links
         if not links:
             links = [
-                ContactLink("LinkedIn", d.contact.linkedin),
-                ContactLink("GitHub", d.contact.github),
-                ContactLink("Portfolio", d.contact.portfolio),
+                ContactLink("LinkedIn", getattr(d.contact, "linkedin", "")),
+                ContactLink("GitHub", getattr(d.contact, "github", "")),
+                ContactLink("Portfolio", getattr(d.contact, "portfolio", "")),
             ]
         self._contact_links.set_items([
             {"label": link.label, "url": link.url}
@@ -262,8 +276,11 @@ class ResumeBuilderApp(ctk.CTk):
             "name": p.name, "description": p.description, "link": p.link,
         } for p in d.projects])
 
-        self._tech_stack.set(d.tech_stack)
-        self._familiar_stack.set(getattr(d, "familiar_stack", ""))
+        # แก้ไขจุดที่ดึงข้อมูล Skills และ Summary ให้ถูกต้องตรงนี้ครับ
+        self._skills_editor.set_items([
+            {"name": s.name, "items": s.items if isinstance(s.items, str) else ", ".join(s.items)}
+            for s in getattr(d, "skills", [])
+        ])
         self._summary.set(getattr(d, "summary", ""))
         self._lang_editor.set_items([{"name": l.name, "level": l.level} for l in d.languages])
         self._order_panel.set_order(d.section_order)

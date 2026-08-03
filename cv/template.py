@@ -99,7 +99,7 @@ class PublicResumeTemplate(BaseResumeTemplate):
             elif section == "projects" and data.projects:
                 y = self._draw_section(c, theme, y, "PROJECTS")
                 y = self._draw_projects(c, data, theme, y)
-            elif section == "skills" and (data.tech_stack or data.languages):
+            elif section == "skills" and (data.skills or data.languages):
                 y = self._draw_section(c, theme, y, "SKILLS")
                 y = self._draw_skills(c, data, theme, y)
 
@@ -412,44 +412,25 @@ class PublicResumeTemplate(BaseResumeTemplate):
     def _draw_skills(self, c: canvas.Canvas, data: ResumeData, theme: Theme, y: float) -> float:
         line_h = theme.size_body * theme.line_height
 
-        if data.tech_stack:
-            prefix = "Primary: "
-            c.setFont(theme.font_bold, theme.size_body)
-            pw = c.stringWidth(prefix, theme.font_bold, theme.size_body)
-            c.setFillColor(self._hex(theme.text_primary))
-            c.drawString(theme.margin_left, y - theme.size_body * 0.8, prefix)
+        for s in data.skills:
+            if s.name or s.items:
+                prefix = f"{s.name}: " if s.name else ""
+                c.setFont(theme.font_bold, theme.size_body)
+                pw = c.stringWidth(prefix, theme.font_bold, theme.size_body)
+                c.setFillColor(self._hex(theme.text_primary))
+                c.drawString(theme.margin_left, y - theme.size_body * 0.8, prefix)
 
-            remaining = theme.content_width - pw
-            lines = wrap_text_lines(data.tech_stack, remaining, theme.size_body, theme.font_regular)
-            c.setFont(theme.font_regular, theme.size_body)
-            if lines:
-                c.drawString(theme.margin_left + pw, y - theme.size_body * 0.8, lines[0])
-                y -= line_h
-                for line in lines[1:]:
-                    c.drawString(theme.margin_left, y - theme.size_body * 0.8, line)
+                remaining = theme.content_width - pw
+                lines = wrap_text_lines(s.items, remaining, theme.size_body, theme.font_regular)
+                c.setFont(theme.font_regular, theme.size_body)
+                if lines:
+                    c.drawString(theme.margin_left + pw, y - theme.size_body * 0.8, lines[0])
                     y -= line_h
-            else:
-                y -= line_h
-
-        familiar = getattr(data, "familiar_stack", "")
-        if familiar:
-            prefix = "Familiar: "
-            c.setFont(theme.font_bold, theme.size_body)
-            pw = c.stringWidth(prefix, theme.font_bold, theme.size_body)
-            c.setFillColor(self._hex(theme.text_primary))
-            c.drawString(theme.margin_left, y - theme.size_body * 0.8, prefix)
-
-            remaining = theme.content_width - pw
-            lines = wrap_text_lines(familiar, remaining, theme.size_body, theme.font_regular)
-            c.setFont(theme.font_regular, theme.size_body)
-            if lines:
-                c.drawString(theme.margin_left + pw, y - theme.size_body * 0.8, lines[0])
-                y -= line_h
-                for line in lines[1:]:
-                    c.drawString(theme.margin_left, y - theme.size_body * 0.8, line)
+                    for line in lines[1:]:
+                        c.drawString(theme.margin_left, y - theme.size_body * 0.8, line)
+                        y -= line_h
+                else:
                     y -= line_h
-            else:
-                y -= line_h
 
         if data.languages:
             lang_text = ", ".join(
@@ -536,11 +517,10 @@ class PublicResumeTemplate(BaseResumeTemplate):
 
         langs = ", ".join(f"{l.name} ({l.level})" for l in data.languages)
 
-        familiar_html = ""
-        familiar_html = ""
-        familiar = getattr(data, "familiar_stack", "")
-        if familiar:
-            familiar_html = f'<p><strong>Familiar:</strong> {familiar}</p>'
+        skills_html = ""
+        for s in data.skills:
+            if s.name or s.items:
+                skills_html += f'<p><strong>{s.name}:</strong> {s.items}</p>'
 
         summary_html = ""
         summary_val = getattr(data, "summary", "")
@@ -576,8 +556,7 @@ class PublicResumeTemplate(BaseResumeTemplate):
 <h2>Experiences</h2>{exp_html}
 <h2>Projects</h2>{proj_html}
 <h2>Skills</h2>
-<p><strong>Primary:</strong> {data.tech_stack}</p>
-{familiar_html}
+{skills_html}
 <p><strong>Languages:</strong> {langs}</p>
 </body></html>"""
 

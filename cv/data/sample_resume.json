@@ -78,7 +78,11 @@
       "link": "vtuber.favorlist.com"
     }
   ],
-  "tech_stack": "SvelteKit, React, Next.js, Node.js & Bun (JavaScript/TypeScript), TailwindCSS, Bootstrap, PHP, MySQL, MongoDB, Docker, Vercel, Cloudflare (WAF, Pages, Workers), Figma",
+  "skills_frontend": "SvelteKit, React, Next.js, TailwindCSS, Bootstrap",
+  "skills_backend": "Node.js & Bun",
+  "skills_database": "MySQL, MongoDB",
+  "skills_languages": "JavaScript, TypeScript, PHP",
+  "skills_tools": "Docker, Vercel, Cloudflare, Figma",
   "languages": [
     {
       "name": "Thai",
