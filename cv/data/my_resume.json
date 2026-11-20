@@ -59,7 +59,7 @@
   "skills": [
     {
       "name": "Programming Languages",
-      "items": "JavaScript (ES6+), TypeScript, Python, PHP, Java, C, C++, C#"
+      "items": "JavaScript, TypeScript, Python, PHP, Java, C, C++, C#"
     },
     {
       "name": "Frontend",
@@ -76,10 +76,6 @@
     {
       "name": "Tools",
       "items": "Git, GitHub, DBeaver, Figma, Postman, Vercel, Netlify"
-    },
-    {
-      "name": "",
-      "items": ""
     }
   ],
   "languages": [
@@ -89,7 +85,7 @@
     },
     {
       "name": "English",
-      "level": "Technical Reading"
+      "level": "Reading & Writing Intermediate"
     }
   ],
   "section_order": [
